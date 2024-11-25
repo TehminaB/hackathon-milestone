@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Dynamic Resume Builder</title>
+</head>
+<body>
+  <h1>Dynamic Resume Builder</h1>
+  
+  <!-- Form Section -->
+  <form id="resume-form">
+    <fieldset>
+      <legend>Personal Information</legend>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </fieldset>
+    
+    <fieldset>
+      <legend>Education</legend>
+      <label for="education">Education:</label>
+      <textarea id="education" name="education" placeholder="e.g., Bachelor's in Computer Science"></textarea>
+    </fieldset>
+    
+    <fieldset>
+      <legend>Work Experience</legend>
+      <label for="workExperience">Work Experience:</label>
+      <textarea id="workExperience" name="workExperience" placeholder="e.g., Software Engineer at ABC Corp"></textarea>
+    </fieldset>
+    
+    <fieldset>
+      <legend>Skills</legend>
+      <label for="skills">Skills:</label>
+      <input type="text" id="skills" name="skills" placeholder="e.g., JavaScript, TypeScript, React">
+    </fieldset>
+
+    <button type="submit">Generate Resume</button>
+  </form>
+
+  <!-- Resume Display Section -->
+  <section id="resume-output">
+    <h2>Generated Resume</h2>
+    <div id="resume"></div>
+  </section>
+
+  <script src="script.js" defer></script>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: hsl(182, 71%, 64%); /* Light background */
+      color: #0e1e75; /* Dark text */
+      margin: 0;
+      padding: 20px;
+    }
+    
+    /* Header Styling */
+    h1 {
+      color: #222f79; /* Dark Blue */
+      text-align: center;
+      font-size: 24px;
+      padding: 10px;
+     
+    }
+    
+    /* Form Section */
+    form {
+      background: #e4cce7; /* Light grey */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px hsla(239, 88%, 20%, 0.102); /* Subtle shadow */
+      max-width: 500px;
+      margin: 20px auto;
+    }
+    
+    label {
+      font-weight: bold;
+      color: #123353; /* Greyish blue */
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #279e9e; /* Light border */
+      border-radius: 5px;
+    }
+    
+    input:focus, textarea:focus {
+      border-color: hsl(229, 87%, 33%); /* Blue border on focus */
+      outline: none;
+    }
+    
+    /* Button Styling */
+    button {
+      background: #e20c16; /* Blue */
+      color: #0b0a0e;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+      background: #3e809e; /* Darker blue */
+    }
+    
+    /* Generated Resume Section */
+    #generated-resume {
+      background: #855c5c; /* White */
+      border: 1px solid #ad76a9; /* Light grey border */
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(44, 5, 150, 0.1); /* Subtle shadow */
+    }
+    
+    #generated-resume h2 {
+      color: #16508a; /* Dark Blue */
+    }
+    
+</style>
+
+</body>
+</html>
