@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Editable Resume Builder</title>
+  <style>
+
+    
+body {
+      font-family: Arial, sans-serif;
+      background-color:  #afa1b1;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #dfd2e6;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .container h2 {
+      text-align: center;
+      color: #1a1a1f;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ac7a7a;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #22c991;
+      color: rgb(153, 109, 109);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #469aca;
+    }
+    .resume-output {
+      background-color: #917f7f;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .resume-output h3 {
+      border-bottom: 1px solid #99a9c0;
+      padding-bottom: 5px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h1><b>Editable Resume Builder</b></h1>
+
+  
+    <form id="resume-form">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+      </div>
+      <div class="form-group">
+        <label for="education">Education:</label>
+        <textarea id="education" placeholder="e.g., Bachelor's in Computer Science"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="work">Work Experience:</label>
+        <textarea id="work" placeholder="e.g., Software Engineer at ABC Corp"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="skills">Skills:</label>
+        <textarea id="skills" placeholder="e.g., JavaScript, React, Python"></textarea>
+      </div>
+      <button type="button" onclick="generateResume()">Generate Resume</button>
+    </form>
+
+    <div id="resume-output" class="resume-output" contenteditable="true" style="display: none;">
+      <h3>Generated Resume</h3>
+    </div>
+  </div>
+
+  <script>
+    function generateResume() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const education = document.getElementById("education").value;
+      const work = document.getElementById("work").value;
+      const skills = document.getElementById("skills").value;
+
+      const resumeOutput = document.getElementById("resume-output");
+      resumeOutput.innerHTML = `
+        <h3>${name}</h3>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Education:</strong><br>${education.replace(/\n/g, "<br>")}</p>
+        <p><strong>Work Experience:</strong><br>${work.replace(/\n/g, "<br>")}</p>
+        <p><strong>Skills:</strong><br>${skills.replace(/\n/g, "<br>")}</p>
+      `;
+      resumeOutput.style.display = "block";
+    }
+  </script>
+</body>
+</html>
